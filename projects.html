@@ -61,12 +61,14 @@
       <li><a href="https://github.com/blandflakes/echo-stopwatch">Stopwatch</a></li>
     </ul>
     <h1>Boggle</h1>
-    <p>For an interview process back in the day (tm), I was tasked with writing an agent to find all valid words in a Boggle board in the fastest time possible. This in itself was an interesting task. I wrote a simple brute-force search (I figured you have to at least start to look at all possibilities, no matter how efficient your algorithm is). When it came time to make this faster, I didn't think there was any way to speed up the traversal itself; rather most potential speedups would come from bailing on a particular word or word when you know this path can no longer possibly be valid.</p>
-    <p>So, forsaking the abstraction of having a simple dictionary lookup, I broke the entire dictionary into a very memory-heavy graph. The keys of the first layer would be the first letter of each word. They would point to more nested maps, where each key was the first letter of the rest of the word. At any point, if I was traversing a potential word and there were no more keys following a letter, I would be able to tell right then that this search was fruitless, instead of continuing along. This approach would drastically prune my search space in realtime.</p>
-    <p>Another optimization which likely had a minor effect was to mark a node exhausted. Basically, if I encountered the same word again (and there were no other candidates with the same beginning), I didn't need to keep analyzing, because words only count once.</p>
-    <p>I found the second part of this task even more intriguing. I was asked to generate the board with the highest possible score. I assumed that there was some algorithm that, given a dictionary, could pack the largest amount of words in a grid of m by n squares. However, I also figured that if I didn't figure it out, I'd fail this interview. Instead, I chose to use a heuristic. If I could generate a reasonably high-scoring board with an algorithm that was much easier to figure out, I had a better shot at succeeding. I didn't know much about algorithms, but I felt that using a genetic algorithm was an appropriate approach. High scoring boards were likely to be high scoring due to the physical location of each piece of the representation, so crossing over had a good chance of generating good combinations of already high scoring boards.</p>
-    <p>Aside from an initial hiccup where I accidentally sorted the samples from least fit to most fit (resulting in "devolving" towards a minimal board instead of a maximal board), this resulted in pretty good selection of several high-scoring solutions.</p>
+    <p>This project had two goals:</p>
+    <ol>
+      <li>Write an agent that will find all the valid words in a Boggle board in the fastest time possible.</li>
+      <li>Generate the highest-scoring Boggle board you can.</li>
+    </ol>
+    <p>For the first task, I wrote a simple agent who traverses all possible combinations of letters, but who is capable of deciding "early" if a word is valid or not (i.e. if I'm partway through a word and the next letter makes the word invalid, we'll just stop). This let me prune my search space dramatically.</p>
+    <p>For the second, I wrote a genetic algorithm that would start with some random samples, and mate the highest scoring boards to generate (hopefully) even higher scoring boards over many generations.</p>
     <p>Links:</p>
-    <p><a href="https://github.com/blandflakes/Boggle">Source</a>
+    <p><a href="https://github.com/blandflakes/Boggle">Source, with a more in-depth README.</a>
   </body>
 </html>
