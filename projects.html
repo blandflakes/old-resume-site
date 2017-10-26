@@ -20,10 +20,9 @@
     but none that focus on what I want to do, which is have really natural versioning support. I want to be able to create an instance of any version of a recipe,
     take notes on each of those instances, and have links between various versions of a recipe. Essentially, this is a recipe tracking application for people
     who like git.</p>
-    <p>I'm also using this an an opportunity to explore two new technologies: Neo4j, and JavaFx. I've spent a serious amount of time building tools as web applications,
-    but I think a lot of the frustrations and speed bumps I experienced while doing so might be removed by just building a desktop application rather than a browser
-    application - since Java is a language I have a lot of experience with, it makes sense to try JavaFx. I'm using Neo4j because I feel that the paradigm supported
-    by a graph database is a better fit for modeling the various relationships that I want to support in the future.</p>
+    <p>The first prototype is built with JavaFx with Neo4j. I think for my second version, I plan to use a web server with browser interface. In general I don't
+    like to use that approach for local tools, but I plan to evolve this project with phone synching, sensors uploading data, etc, so a long-lived server makes
+    more sense.</p>
     <p>Links:</p>
     <ul>
       <li><a href="https://github.com/blandflakes/artisan">Artisan on Github</a></li>
@@ -62,8 +61,15 @@
     <h1>Echo Chamber (out of date) and Stopwatch</h1>
     <p>When the Echo came out, I was of course interested in writing new functionality for it. Amazon vends a Java Servlet-based SDK for writing Echo skills, but I wanted a library or framework for writing these skills in Clojure.</p>
     <p>The implementation of this project is mostly simple - I created a Ring template that generates a handler for routing requests. It does the work of parsing an HTTP JSON request into a Clojure map (specific by Schema). With this framework, I could have a simple "Hello World" application running in about 5 minutes.</p>
-    <p>At this point, the upkeep of the library (in particular the schemas) would take time away from other projects, and most people seem to prefer Javascript or Python implementations, so I haven't been keeping this library in parity with the official SDK.</p>
-    <p>I did create a sample skill called "stopwatch", which would simply allow you to start, stop, and reset a timer. The implementation of this isn't very interesting - the watches are saved in a Clojure atom in memory and written/read from disk on system shutdown/startup.</p>
+    <p>At this point, the upkeep of the library (in particular the schemas) would take time away from other projects, and most people seem to prefer Javascript or Python implementations, so I haven't been keeping this library in parity with the official SDK. However, with Amazon's interest in supporting monetization of skills, I
+    may return to to this project. My plans in the near future are:</p>
+    <ul>
+      <li>Unit tests for Echo Chamber</li>
+      <li>Tuning Fork tool for REPL-driven skill development.</li>
+      <li>Spec instead of Schema</li>
+    </ul>
+    <p>I did create a sample skill called "stopwatch", which would simply allow you to start, stop, and reset a timer. The implementation of this isn't very interesting - the watches are saved in a Clojure atom in memory and written/read from disk on system shutdown/startup. I've recently added pause/resume, and the skill is now called
+    "Time Keeper".</p>
     <p>Links:</p>
     <ul>
       <li><a href="https://github.com/blandflakes/echo-chamber">Echo Chamber</a></li>
