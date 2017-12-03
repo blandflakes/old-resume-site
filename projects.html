@@ -17,7 +17,7 @@
     <h1>Echo Chamber and Stopwatch</h1>
     <p>When the Echo came out, I was of course interested in writing new functionality for it. Amazon vends a Java Servlet-based SDK for writing Echo skills, but I wanted a library or framework for writing these skills in Clojure.</p>
     <p>The implementation of this project is mostly simple - I created a Ring template that generates a handler for routing requests. It does the work of parsing an HTTP JSON request into a Clojure map. Coupled with a router that takes a map declaring request and intent handlers, I could have a simple "Hello World" application running in about 5 minutes.</p>
-    <p>I recently renovated this library to take a map rather than an implementation of a protocol. I thinkt his will be more flexible in the future, if I want to support
+    <p>I recently renovated this library to take a map rather than an implementation of a protocol. I think this will be more flexible in the future, if I want to support
     more interactive modes of development which would involve modifying a skill's handlers at runtime.</p>
     <ul>
       <li>"Tuning Fork" tool for REPL-driven skill development (Coming soon!)</li>
@@ -69,7 +69,7 @@
     </ul>
     <h1>Connoisseur</h1>
     <img src="/images/connoisseur.png" alt="Connoisseur Screenshot" width="628" height="400">
-    <p>Connoisseur was a simple project to learn React.js, a library for building functional web applications. The goal of Connoisseur is to generate either hilarious or believe notes about a food or beverage, using text from a particular author to flavor the verbage. I used a poor man's Markov Chain to do the generation. Some notes end up hilarious, while others are just gibberish. There is also support for adding your own persona or tasting subject!</p>
+    <p>Connoisseur was a simple project to learn React.js, a library for building functional web applications. The goal of Connoisseur is to generate either hilarious or believable notes about a food or beverage, using text from a particular author to flavor the verbage. I used a poor man's Markov Chain to do the generation. Some notes end up hilarious, while others are just gibberish. There is also support for adding your own persona or tasting subject!</p>
     <p>Links:
     <ul>
       <li><a href="http://blandflakes.github.io/connoisseur/">Demo</a></li>
