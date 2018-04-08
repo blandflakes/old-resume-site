@@ -19,7 +19,9 @@
     <p>The implementation of this project is mostly simple - I created a Ring template that generates a handler for routing requests. It does the work of parsing an HTTP JSON request into a Clojure map. Coupled with a router that takes a map declaring request and intent handlers, I could have a simple "Hello World" application running in about 5 minutes.</p>
     <p>I recently renovated this library to take a map rather than an implementation of a protocol. I think this will be more flexible in the future, if I want to support
     more interactive modes of development which would involve modifying a skill's handlers at runtime.</p>
+    <p>Potential enhancements:</p>
     <ul>
+      <li>Rewrite to work with the ASK version 2, which has a much better API than the previous iteration they released</li>
       <li>"Tuning Fork" tool for REPL-driven skill development (Coming soon!)</li>
       <li>Spec definitions for various request types.</li>
     </ul>
@@ -30,19 +32,6 @@
       <li><a href="https://github.com/blandflakes/echo-chamber">Echo Chamber</a></li>
       <li><a href="https://github.com/blandflakes/echo-chamber-template">Echo Chamber Template</a></li>
       <li><a href="https://github.com/blandflakes/echo-stopwatch">Stopwatch</a></li>
-    </ul>
-    <h1>Artisan (In Development)</h1>
-    <img src="images/artisan.png" alt="recipe summary page in artisan" width="500" height="313">
-   <p>Artisan is my most recent project aside from Echo Chamber. I'm building a "notebook" to record notes when I brew beer. There is a lot of good existing software for
-    this purpose, but none that focus on what I want to do, which is have really natural versioning support. I want to be able to create an instance of any version of a
-    recipe, take notes on each of those instances, and have links between various versions of a recipe. Essentially, this is a recipe tracking application for people
-    who like git.</p>
-    <p>The first prototype is built with JavaFx with Neo4j. I think for my second version, I plan to use a web server with browser interface. In general I don't
-    like to use that approach for local tools, but I plan to evolve this project with phone synching, sensors uploading data, etc, so a long-lived server makes
-    more sense.</p>
-    <p>Links:</p>
-    <ul>
-      <li><a href="https://github.com/blandflakes/artisan">Artisan on Github</a></li>
     </ul>
     <h1>Crochet Alignment</h1>
     <p>I really dropped the ball on naming this one. This is an optimization tool, which solves the problem of: "If I want to arrange some quilt squares of different
